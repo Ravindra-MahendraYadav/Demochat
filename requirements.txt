@@ -1,4 +1,5 @@
 openai
+langchain-community
 langchain
 chromadb
 docx2txt
