@@ -8,4 +8,4 @@ streamlit
 tiktoken
 qrcode
 pillow 
-speech_recognition
+
