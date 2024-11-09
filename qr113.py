@@ -5,29 +5,29 @@ import os
 import qrcode
 from io import BytesIO
 from PIL import Image
-import speech_recognition as sr
+# import speech_recognition as sr
 from dotenv import load_dotenv
 
 # Function to load document based on file type
-def load_document(file):
-    name, extension = os.path.splitext(file)
-    if extension == ".pdf":
-        from langchain.document_loaders import PyPDFLoader
-        print(f'loading {file}')
-        loader = PyPDFLoader(file)
-    elif extension == ".docx":
-        from langchain.document_loaders import Docx2txtLoader
-        print(f'loading {file}')
-        loader = Docx2txtLoader(file)
-    elif extension == ".txt":
-        from langchain.document_loaders import TextLoader
-        print(f'loading {file}')
-        loader = TextLoader(file)
-    else:
-        print("Document Type Not supported")
-        return None
-    data = loader.load()
-    return data
+# def load_document(file):
+#     name, extension = os.path.splitext(file)
+#     if extension == ".pdf":
+#         from langchain.document_loaders import PyPDFLoader
+#         print(f'loading {file}')
+#         loader = PyPDFLoader(file)
+#     elif extension == ".docx":
+#         from langchain.document_loaders import Docx2txtLoader
+#         print(f'loading {file}')
+#         loader = Docx2txtLoader(file)
+#     elif extension == ".txt":
+#         from langchain.document_loaders import TextLoader
+#         print(f'loading {file}')
+#         loader = TextLoader(file)
+#     else:
+#         print("Document Type Not supported")
+#         return None
+#     data = loader.load()
+#     return data
 
 def chunk_data(data, chunk_size=256, chunk_overlap=20):
     from langchain.text_splitter import RecursiveCharacterTextSplitter
