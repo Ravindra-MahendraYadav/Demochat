@@ -8,7 +8,7 @@ from PIL import Image
 # import speech_recognition as sr
 from dotenv import load_dotenv
 
-Function to load document based on file type
+# Function to load document based on file type
 def load_document(file):
     name, extension = os.path.splitext(file)
     if extension == ".pdf":
