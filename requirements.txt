@@ -6,3 +6,8 @@ docx2txt
 pypdf
 streamlit
 tiktoken
+io
+dotenv
+PIL
+speech_recognition
+qrcode
