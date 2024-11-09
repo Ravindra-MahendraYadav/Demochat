@@ -8,26 +8,26 @@ from PIL import Image
 # import speech_recognition as sr
 from dotenv import load_dotenv
 
-# Function to load document based on file type
-# def load_document(file):
-#     name, extension = os.path.splitext(file)
-#     if extension == ".pdf":
-#         from langchain.document_loaders import PyPDFLoader
-#         print(f'loading {file}')
-#         loader = PyPDFLoader(file)
-#     elif extension == ".docx":
-#         from langchain.document_loaders import Docx2txtLoader
-#         print(f'loading {file}')
-#         loader = Docx2txtLoader(file)
-#     elif extension == ".txt":
-#         from langchain.document_loaders import TextLoader
-#         print(f'loading {file}')
-#         loader = TextLoader(file)
-#     else:
-#         print("Document Type Not supported")
-#         return None
-#     data = loader.load()
-#     return data
+Function to load document based on file type
+def load_document(file):
+    name, extension = os.path.splitext(file)
+    if extension == ".pdf":
+        from langchain.document_loaders import PyPDFLoader
+        print(f'loading {file}')
+        loader = PyPDFLoader(file)
+    elif extension == ".docx":
+        from langchain.document_loaders import Docx2txtLoader
+        print(f'loading {file}')
+        loader = Docx2txtLoader(file)
+    elif extension == ".txt":
+        from langchain.document_loaders import TextLoader
+        print(f'loading {file}')
+        loader = TextLoader(file)
+    else:
+        print("Document Type Not supported")
+        return None
+    data = loader.load()
+    return data
 
 def chunk_data(data, chunk_size=256, chunk_overlap=20):
     from langchain.text_splitter import RecursiveCharacterTextSplitter
@@ -66,22 +66,22 @@ def generate_qr_code(url, size=(250, 250)):
     return buf
 
 # Function to capture speech input and return text
-def capture_speech():
-    recognizer = sr.Recognizer()
-    with sr.Microphone() as source:
-        st.info("Listening... Please speak your question")
-        try:
-            audio = recognizer.listen(source, timeout=5)
-            text = recognizer.recognize_google(audio)
-            st.success("Speech recognized successfully!")
-            return text
-        except sr.UnknownValueError:
-            st.error("Could not understand the audio")
-        except sr.RequestError:
-            st.error("Error in processing the request")
-        except sr.WaitTimeoutError:
-            st.warning("No speech detected within the timeout period")
-    return None
+# def capture_speech():
+#     recognizer = sr.Recognizer()
+#     with sr.Microphone() as source:
+#         st.info("Listening... Please speak your question")
+#         try:
+#             audio = recognizer.listen(source, timeout=5)
+#             text = recognizer.recognize_google(audio)
+#             st.success("Speech recognized successfully!")
+#             return text
+#         except sr.UnknownValueError:
+#             st.error("Could not understand the audio")
+#         except sr.RequestError:
+#             st.error("Error in processing the request")
+#         except sr.WaitTimeoutError:
+#             st.warning("No speech detected within the timeout period")
+#     return None
 
 if __name__ == "__main__":
     # Load environment variables from .env file
