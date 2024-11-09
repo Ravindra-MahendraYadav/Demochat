@@ -1,13 +1,10 @@
 openai
-langchain-community
 langchain
+langchain-community
 chromadb
 docx2txt
 pypdf
 streamlit
 tiktoken
-io
-dotenv
-PIL
-speech_recognition
 qrcode
+pillow 
